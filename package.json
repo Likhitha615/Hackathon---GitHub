@@ -1,0 +1,16 @@
+{
+  "name": "e3d-controller-management-tests",
+  "version": "1.0.0",
+  "description": "Functional tests for E3D Controller Management - Generate Password feature",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0",
+    "typescript": "^5.0.0"
+  }
+}

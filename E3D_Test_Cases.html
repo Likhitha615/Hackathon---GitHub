@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>E3D Controller Management - Test Cases</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #000; padding: 8px; text-align: left; vertical-align: top; }
+        th { background-color: #4472C4; color: white; font-weight: bold; }
+        .critical { background-color: #FF6B6B; }
+        .high { background-color: #FFE66D; }
+        .medium { background-color: #A8E6CF; }
+        .low { background-color: #E8F4FD; }
+    </style>
+</head>
+<body>
+    <h1>E3D Controller Management - Functional Test Cases</h1>
+    <h2>Generated: September 1, 2025 | Total Test Cases: 20</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Test ID</th>
+                <th>Category</th>
+                <th>Scenario</th>
+                <th>Priority</th>
+                <th>Test Steps</th>
+                <th>Expected Result</th>
+                <th>Requirements</th>
+                <th>Test Type</th>
+                <th>Automation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="high">
+                <td>TC001</td>
+                <td>Authentication</td>
+                <td>Valid User Authentication</td>
+                <td>High</td>
+                <td>1. Navigate to E3D application URL: https://e3d-s.ecolab.com/<br>2. Locate username/email input field<br>3. Enter valid username: testuser@example.com<br>4. Locate password input field<br>5. Enter valid password: ValidPassword123<br>6. Click Login/Sign In button<br>7. Wait for page redirection</td>
+                <td>- User is successfully authenticated<br>- Page redirects to dashboard/home page<br>- User session is established<br>- No error messages are displayed</td>
+                <td>User should successfully authenticate by login to E3D</td>
+                <td>Functional</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="high">
+                <td>TC002</td>
+                <td>Authentication</td>
+                <td>Invalid User Authentication</td>
+                <td>High</td>
+                <td>1. Navigate to E3D application URL<br>2. Enter invalid username: invalid@example.com<br>3. Enter invalid password: wrongpassword<br>4. Click Login button<br>5. Observe system response</td>
+                <td>- Authentication fails<br>- Error message is displayed: "Invalid credentials" or similar<br>- User remains on login page<br>- No session is established</td>
+                <td>User should successfully authenticate by login to E3D</td>
+                <td>Negative</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="medium">
+                <td>TC003</td>
+                <td>Navigation</td>
+                <td>Navigate to Tools Menu</td>
+                <td>Medium</td>
+                <td>1. Complete user authentication (prerequisite)<br>2. Locate "Tools" menu item in navigation<br>3. Click on "Tools" menu<br>4. Verify Tools menu is accessible</td>
+                <td>- Tools menu is visible and accessible<br>- Tools submenu options are displayed<br>- No navigation errors occur</td>
+                <td>User should be able to navigate to Controller Management module by clicking on Tools -> Controller Management</td>
+                <td>Functional</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="high">
+                <td>TC004</td>
+                <td>Navigation</td>
+                <td>Navigate to Controller Management Module</td>
+                <td>High</td>
+                <td>1. Complete user authentication (prerequisite)<br>2. Click on "Tools" menu<br>3. Locate "Controller Management" option in Tools submenu<br>4. Click on "Controller Management"<br>5. Wait for page/module to load</td>
+                <td>- Controller Management module loads successfully<br>- Controller Management interface is displayed<br>- Navigation breadcrumb shows: Tools > Controller Management<br>- Page URL reflects Controller Management section</td>
+                <td>User should be able to navigate to Controller Management module by clicking on Tools -> Controller Management</td>
+                <td>Functional</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="high">
+                <td>TC005</td>
+                <td>Navigation</td>
+                <td>Access Generate Password Section</td>
+                <td>High</td>
+                <td>1. Navigate to Controller Management module (prerequisite)<br>2. Locate "Generate Password" section/option<br>3. Click on "Generate Password"<br>4. Verify Generate Password interface loads</td>
+                <td>- Generate Password section is accessible<br>- Generate Password form/interface is displayed<br>- Required input fields are visible (serial number, date if applicable)<br>- Generate Password button is present and enabled</td>
+                <td>User should be able to navigate and access Generate Password section</td>
+                <td>Functional</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="critical">
+                <td>TC006</td>
+                <td>Core Functionality</td>
+                <td>Generate Password with Valid Serial Number</td>
+                <td>Critical</td>
+                <td>1. Navigate to Generate Password section (prerequisite)<br>2. Locate serial number input field<br>3. Enter valid serial number: SN123456789<br>4. Fill date field if present with current date: 2025-09-01<br>5. Click "Generate Password" button<br>6. Wait for password generation process</td>
+                <td>- Password is generated successfully<br>- Generated password is displayed in designated field/area<br>- Success message is shown: "Password generated successfully"<br>- Generated password is non-empty and follows expected format<br>- All form fields remain properly filled</td>
+                <td>User should be able to Generate Password only after serial number is entered</td>
+                <td>Functional</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="medium">
+                <td>TC007</td>
+                <td>Core Functionality</td>
+                <td>Generate Password with Different Serial Number Formats</td>
+                <td>Medium</td>
+                <td>1. Navigate to Generate Password section<br>2. Test with serial number: SN-123-456-789<br>3. Generate password and verify success<br>4. Clear form and test with: SERIAL123456<br>5. Generate password and verify success<br>6. Clear form and test with: 123456789<br>7. Generate password and verify success</td>
+                <td>- All valid serial number formats are accepted<br>- Password is generated for each valid format<br>- No format-related errors are displayed<br>- System handles different serial number patterns correctly</td>
+                <td>User should be able to Generate Password only after serial number is entered</td>
+                <td>Functional</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="high">
+                <td>TC008</td>
+                <td>Error Validation</td>
+                <td>Generate Password with Empty Serial Number</td>
+                <td>High</td>
+                <td>1. Navigate to Generate Password section<br>2. Leave serial number field empty (or clear it if pre-filled)<br>3. Fill date field if present with valid date<br>4. Click "Generate Password" button<br>5. Observe system response</td>
+                <td>- Password generation fails<br>- Error message is displayed: "Serial number is required" or similar<br>- No password is generated<br>- Serial number field is highlighted or marked as invalid<br>- Form does not submit</td>
+                <td>User should be able to see error if no serial number is entered or date field is null</td>
+                <td>Negative</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="high">
+                <td>TC009</td>
+                <td>Error Validation</td>
+                <td>Generate Password with Null/Empty Date Field</td>
+                <td>High</td>
+                <td>1. Navigate to Generate Password section<br>2. Enter valid serial number: SN123456789<br>3. Leave date field empty or clear it<br>4. Click "Generate Password" button<br>5. Observe system response</td>
+                <td>- Password generation fails<br>- Error message is displayed: "Date field is required" or "Date cannot be null"<br>- No password is generated<br>- Date field is highlighted as invalid<br>- Form validation prevents submission</td>
+                <td>User should be able to see error if no serial number is entered or date field is null</td>
+                <td>Negative</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="medium">
+                <td>TC010</td>
+                <td>Error Validation</td>
+                <td>Generate Password with Invalid Serial Number</td>
+                <td>Medium</td>
+                <td>1. Navigate to Generate Password section<br>2. Enter invalid serial number: 123 (too short)<br>3. Click Generate Password button<br>4. Test with another invalid format: !@#$%<br>5. Test with another invalid format: ABC (only letters)<br>6. Observe system response for each</td>
+                <td>- Password generation fails for all invalid formats<br>- Appropriate error messages are displayed for each invalid format<br>- Error messages are specific: "Invalid serial number format"<br>- No password is generated for invalid inputs<br>- Input validation occurs before submission</td>
+                <td>User should be able to see error if no serial number is entered or date field is null</td>
+                <td>Negative</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="medium">
+                <td>TC011</td>
+                <td>Data Validation</td>
+                <td>Serial Number Field Validation - Boundary Testing</td>
+                <td>Medium</td>
+                <td>1. Navigate to Generate Password section<br>2. Test minimum length: Enter A (single character)<br>3. Test maximum length: Enter 255 characters<br>4. Test excessive length: Enter 1000 characters<br>5. Test special characters: SN-123_456@789<br>6. Test unicode characters: 测试123<br>7. Observe validation behavior for each</td>
+                <td>- Minimum length triggers appropriate validation<br>- Maximum length is handled correctly (either accepted or truncated)<br>- Excessive length is prevented or handled gracefully<br>- Special characters are validated according to business rules<br>- Unicode characters are handled appropriately<br>- Clear validation messages for each boundary case</td>
+                <td>Input validation requirements</td>
+                <td>Boundary</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="medium">
+                <td>TC012</td>
+                <td>Data Validation</td>
+                <td>Date Field Validation</td>
+                <td>Medium</td>
+                <td>1. Navigate to Generate Password section<br>2. Enter valid serial number<br>3. Test future date: 2026-12-31<br>4. Test past date: 2020-01-01<br>5. Test invalid date: 2025-13-45<br>6. Test different format: 31/12/2025<br>7. Test text in date field: invalid date</td>
+                <td>- Valid dates are accepted and properly formatted<br>- Invalid dates trigger validation errors<br>- Date format requirements are clearly communicated<br>- Business rules for date ranges are enforced<br>- Clear error messages for invalid date inputs</td>
+                <td>Date field validation requirements</td>
+                <td>Validation</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="low">
+                <td>TC013</td>
+                <td>UI/UX</td>
+                <td>User Interface Elements Validation</td>
+                <td>Low</td>
+                <td>1. Navigate to Generate Password section<br>2. Verify serial number input field is present<br>3. Check field label: "Serial Number" or similar<br>4. Verify placeholder text in serial number field<br>5. Check Generate Password button is present and enabled<br>6. Verify any help text or tooltips<br>7. Check form layout and alignment</td>
+                <td>- All required UI elements are present<br>- Labels are clear and descriptive<br>- Placeholder text provides guidance<br>- Generate Password button is properly styled and enabled<br>- Form layout is user-friendly and accessible<br>- Help text/tooltips provide useful information</td>
+                <td>UI/UX requirements</td>
+                <td>UI</td>
+                <td>Partial</td>
+            </tr>
+            <tr class="low">
+                <td>TC014</td>
+                <td>UI/UX</td>
+                <td>Responsive Design Testing</td>
+                <td>Low</td>
+                <td>1. Access Generate Password section on desktop (1920x1080)<br>2. Verify all elements are visible and properly arranged<br>3. Switch to tablet view (768x1024)<br>4. Verify form adapts correctly to tablet screen<br>5. Switch to mobile view (375x667)<br>6. Verify form is usable on mobile device<br>7. Test form submission on each device size</td>
+                <td>- Form displays correctly on all screen sizes<br>- All elements remain accessible and functional<br>- Text remains readable on smaller screens<br>- Form submission works on all device sizes<br>- No horizontal scrolling required on mobile<br>- Touch targets are appropriately sized for mobile</td>
+                <td>Responsive design requirements</td>
+                <td>UI</td>
+                <td>Partial</td>
+            </tr>
+            <tr class="medium">
+                <td>TC015</td>
+                <td>Performance</td>
+                <td>Password Generation Performance</td>
+                <td>Medium</td>
+                <td>1. Navigate to Generate Password section<br>2. Enter valid serial number<br>3. Record timestamp before clicking Generate Password<br>4. Click Generate Password button<br>5. Record timestamp when password is displayed<br>6. Calculate generation time<br>7. Repeat test 5 times for consistency</td>
+                <td>- Password generation completes within 5 seconds<br>- Response time is consistent across multiple attempts<br>- No timeout errors occur<br>- UI provides feedback during generation process<br>- Generated password appears immediately after generation</td>
+                <td>Performance requirements</td>
+                <td>Performance</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="medium">
+                <td>TC016</td>
+                <td>Performance</td>
+                <td>Page Load Performance</td>
+                <td>Medium</td>
+                <td>1. Clear browser cache<br>2. Navigate to E3D application URL<br>3. Measure login page load time<br>4. Complete authentication<br>5. Measure dashboard load time<br>6. Navigate to Controller Management<br>7. Measure Controller Management load time<br>8. Access Generate Password section<br>9. Measure Generate Password section load time</td>
+                <td>- All pages load within 10 seconds<br>- Critical rendering path completes within 3 seconds<br>- No broken images or missing resources<br>- Progressive loading if applicable works correctly<br>- Error pages (if any) load quickly</td>
+                <td>Performance requirements</td>
+                <td>Performance</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="high">
+                <td>TC017</td>
+                <td>Security</td>
+                <td>Input Sanitization Testing</td>
+                <td>High</td>
+                <td>1. Navigate to Generate Password section<br>2. Enter XSS payload in serial number: <script>alert('xss')</script><br>3. Submit form and observe behavior<br>4. Enter SQL injection payload: '; DROP TABLE users; --<br>5. Test path traversal: ../../etc/passwd<br>6. Test null bytes: test\x00\x01<br>7. Verify all malicious inputs are handled safely</td>
+                <td>- No script execution occurs<br>- Malicious inputs are sanitized or rejected<br>- Appropriate error messages for invalid inputs<br>- No system errors or crashes<br>- Application remains stable and secure<br>- User data is properly escaped</td>
+                <td>Security requirements</td>
+                <td>Security</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="medium">
+                <td>TC018</td>
+                <td>Security</td>
+                <td>HTTPS and Security Headers</td>
+                <td>Medium</td>
+                <td>1. Access application and verify HTTPS is enforced<br>2. Check for security headers in response<br>3. Verify X-Frame-Options header<br>4. Check Content-Security-Policy header<br>5. Verify X-XSS-Protection header<br>6. Check Strict-Transport-Security header</td>
+                <td>- Application enforces HTTPS<br>- HTTP requests redirect to HTTPS<br>- Security headers are properly configured<br>- Content Security Policy prevents XSS<br>- Clickjacking protection is enabled<br>- HSTS header ensures secure connections</td>
+                <td>Security requirements</td>
+                <td>Security</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="critical">
+                <td>TC019</td>
+                <td>End-to-End</td>
+                <td>Complete Password Generation Workflow</td>
+                <td>Critical</td>
+                <td>1. Start at E3D application homepage<br>2. Complete user authentication<br>3. Navigate to Tools menu<br>4. Access Controller Management module<br>5. Navigate to Generate Password section<br>6. Enter valid serial number: SN987654321<br>7. Fill any required additional fields<br>8. Generate password<br>9. Verify password is generated and displayed<br>10. Log out of application</td>
+                <td>- Complete workflow executes without errors<br>- Each step transitions smoothly to the next<br>- Password is successfully generated<br>- User can complete task and log out<br>- No data is lost during workflow<br>- All navigation works correctly</td>
+                <td>Complete workflow requirements</td>
+                <td>E2E</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="medium">
+                <td>TC020</td>
+                <td>End-to-End</td>
+                <td>Multiple Password Generation Session</td>
+                <td>Medium</td>
+                <td>1. Complete authentication and navigate to Generate Password<br>2. Generate password with serial: SN111111111<br>3. Clear form and generate password with serial: SN222222222<br>4. Clear form and generate password with serial: SN333333333<br>5. Verify each password generation is independent<br>6. Check for any session or memory issues</td>
+                <td>- Multiple passwords can be generated in same session<br>- Each generation produces unique/appropriate result<br>- Form clears correctly between generations<br>- No session timeout or memory issues<br>- Application performance remains consistent<br>- No interference between consecutive generations</td>
+                <td>Session management requirements</td>
+                <td>E2E</td>
+                <td>Yes</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Test Case Summary by Category:</h3>
+    <ul>
+        <li>Authentication: 2 test cases</li>
+        <li>Navigation: 3 test cases</li>
+        <li>Core Functionality: 2 test cases</li>
+        <li>Error Validation: 3 test cases</li>
+        <li>Data Validation: 2 test cases</li>
+        <li>UI/UX: 2 test cases</li>
+        <li>Performance: 2 test cases</li>
+        <li>Security: 2 test cases</li>
+        <li>End-to-End: 2 test cases</li>
+    </ul>
+</body>
+</html>

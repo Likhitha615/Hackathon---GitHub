@@ -1,0 +1,21 @@
+{
+  "totalTestCases": 20,
+  "categories": [
+    "Authentication",
+    "Navigation",
+    "Core Functionality",
+    "Error Validation",
+    "Data Validation",
+    "UI/UX",
+    "Performance",
+    "Security",
+    "End-to-End"
+  ],
+  "priorities": {
+    "High": 7,
+    "Medium": 9,
+    "Critical": 2,
+    "Low": 2
+  },
+  "automationCoverage": 18
+}
